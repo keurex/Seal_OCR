@@ -1,0 +1,51 @@
+# Python / environments
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+build/
+dist/
+
+# Training data and outputs
+data/
+models/
+checkpoints/
+reports/
+deploy/
+*_spatial/
+*.log
+*.onnx
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.zip
+*.7z
+
+# User-provided synthesis resources
+synthesis/fonts/*
+!synthesis/fonts/.gitkeep
+synthesis/backgrounds/*
+!synthesis/backgrounds/.gitkeep
+
+# Legacy local data paths; never publish restored private assets
+dataset/
+test/
+cust-data/
+weights/
+make_data*/
+
+# Editors and operating systems
+.idea/
+.vscode/
+.codegraph/
+.gemini/
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Tool caches
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
