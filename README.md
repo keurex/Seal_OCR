@@ -248,7 +248,7 @@ python evaluate.py \
 
 ## 9. 发布训练后的 PyTorch 模型
 
-训练后的 `finetune_v8_spatial_v2_512/best` 通过 Google Drive 共享：
+训练后的模型通过 Google Drive 共享：
 
 [下载模型文件（Google Drive）](https://drive.google.com/drive/folders/1vpWDxkPtbSzxet4ZnDbBi1MJRv3yOki0?usp=drive_link)
 
@@ -266,27 +266,12 @@ tokenizer_config.json
 vocab.json
 ```
 
-注意：`merges.txt` 必须是原始纯文本文件，不能是 Google Docs 文档。若网盘将它显示为没有扩展名的 `merges` 或 Google Docs，请重新上传 `merges.txt`，并关闭网盘的“将上传文件转换为 Google 文档”选项；否则 tokenizer 可能无法正确加载。
-
 其中 `model.safetensors` 大约为 115.9 MB。下载后可校验权重完整性：
 
 ```bash
 shasum -a 256 model.safetensors
 # 1ba4ddb7c385e3ac2adb9b0dde483545810347db62629b1f1f3b0ab9110972da
 ```
-
-PyTorch checkpoint 评估示例：
-
-```bash
-python evaluate.py \
-  --model checkpoints/finetune_v8_spatial_v2_512/best \
-  --data data/real/test \
-  --output reports/finetune_v8_spatial_v2_512
-```
-
-`model.safetensors` 与配置、处理器和 tokenizer 文件必须来自同一次训练输出，不能只下载权重文件。模型使用 512×512 输入和 `letterbox` 预处理；空间辅助分支只用于训练，不是普通推理所需的额外文件。
-
-权重不提交到 GitHub 普通 Git 历史，以避免大文件限制；GitHub 仅保留代码和本下载说明。
 
 ## 10. 模型打包与 ONNX 推理
 
